@@ -1,25 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import Counter from './Counter';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = ({from1=0, to1=10, from2=200, to2=300}) =>
+  <div style={{ display: 'flex', flexDirection: 'row'}}>
+    <Counter from={from1} to={to1}/>
+    <span style={{width: '20%'}}/>
+    <Counter from={from2} to={to2}/>
+  </div>;
 
 export default App;
