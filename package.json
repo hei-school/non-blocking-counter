@@ -1,5 +1,5 @@
 {
-  "name": "infinite-counter",
+  "name": "non-blocking-counter",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
