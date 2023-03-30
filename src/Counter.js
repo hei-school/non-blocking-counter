@@ -1,6 +1,20 @@
+import { useEffect, useState } from "react";
+
 const Counter = ({from, to}) => {
-  const consecutiveNumbers = [...Array(to-from).keys()].map(i => i + from);
-  return <div>{consecutiveNumbers.map(n => <p key={n}>{n}</p>)}</div>
+  const [tempFrom, setTempFrom] = useState(from);
+  const [tempTo, setTempTo] = useState(from + 99);
+  let consecutiveNumbers;
+  useEffect(() => {
+    if(tempTo < to){
+      const timer = setTimeout(() => {
+        setTempFrom(tempTo+1);
+        setTempTo(tempFrom + 99);
+      }, 0);
+      return () => clearTimeout(timer);
+    }
+  }, [tempTo, to]);
+  consecutiveNumbers = [...Array(tempFrom-tempTo).keys()].map(i => i + tempFrom);
+  return <div>{consecutiveNumbers.map(n => <p key={n}>{n}</p>)}</div>;
 }
 
 export default Counter;
