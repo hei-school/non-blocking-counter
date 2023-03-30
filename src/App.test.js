@@ -14,11 +14,9 @@ test('can quickly display large counted numbers', () => {
 
   screen.getByText(aRandomNumber(0,100));
   screen.getByText('2000000');
-
   for (let i = 100; i <= 1000000; i += 100) {
     screen.getByText(i);
   }
-
   for (let i = 2000100; i <= 3000000; i += 100) {
     screen.getByText(i);
   }

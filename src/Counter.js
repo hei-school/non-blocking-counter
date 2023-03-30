@@ -16,4 +16,5 @@ const Counter = ({ from, to }) => {
       </div>
   );
 };
+
 export default Counter;
