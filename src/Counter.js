@@ -1,16 +1,19 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState } from 'react';
 
-function Counter({ from, to }) {
-  const [count, setCount] = useState(from);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCount(c => (c < to ? c + 100 : c));
-    }, 0);
-    return () => clearInterval(timer);
-  }, [from, to]);
-
-  return <span>{count < to ? count : to}</span>;
-}
-
+const Counter = ({ from, to }) => {
+  const [maxPrinted, setMaxPrinted] = useState(from - 1);
+  const items = [];
+  for (let i = from + 1; i <= Math.min(to, maxPrinted + 100); i++) {
+    items.push(<div key={i}>{i}</div>);
+  }
+  const handleClick = () => {
+    setMaxPrinted(Math.min(maxPrinted + 100, to));
+  };
+  return (
+      <div>
+        <button onClick={handleClick}>Show more</button>
+        {items}
+      </div>
+  );
+};
 export default Counter;
